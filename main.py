@@ -13,14 +13,15 @@ def get_book_text(filepath: pl.Path) -> str:
 def main():
 
     if len(sys.argv) < 2:
-        print("Usage: python3 main.py <path_to_book>")
+        print("Usage: python3 main.py <file_name> <file_name> ...")
         sys.exit(1)
 
     base_dir: pl.Path = pl.Path(__file__).parent
+    book_dir: pl.Path = base_dir / "books"
 
     for book_path in sys.argv[1:]:
 
-        book_text: str = get_book_text(base_dir / book_path)
+        book_text: str = get_book_text(base_dir / book_dir / file_name)
 
         num_words: int = st.get_num_words(book_text)
 
